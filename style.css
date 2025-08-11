@@ -4,9 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.logo {
+  font-size: 2em;          /* taille du texte */
+  font-weight: bold;       /* texte en gras */
+  color: #ff6600;          /* couleur du texte */ /* tout en majuscules */
+  letter-spacing: 2px;     /* espace entre lettres */
+  font-family: 'Great Vibes', cursive;
+}
+
 
 body {
-  font-family: Arial, sans-serif;
+   font-family: 'Pacifico', cursive;
+
   line-height: 1.6;
 }
 
@@ -174,7 +183,7 @@ section.show {
 
 #competences-experience h3 {
     margin-top: 20px;
-    color: #ffcc00;
+    color: #ff5100;
 }
 
 #competences-experience ul {
@@ -226,13 +235,44 @@ section.show {
 @media (max-width: 768px) {
   .social-links {
     display: flex;
-    flex-direction: column; /* liens en colonne */
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* espace vertical entre chaque lien */
+        color: #0b1635 !important;
+    gap: 10px;
   }
 
-  .social-links a {
-    margin: 5px 0; /* marge verticale supplémentaire */
-    font-size: 1.3em; /* un peu plus grand pour mobile */
+  .social-links a, 
+  .social-links a i { /* on cible aussi les icônes */
+    color: #0b1635 !important;
+    margin: 5px 0;
+    font-size: 1.3em;
   }
+}
+
+.competences {
+  max-width: 500px;
+}
+
+.skill span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.skill {
+  margin-bottom: 15px;
+}
+
+.progress {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0; /* commence à 0% */
+  background: linear-gradient(90deg, #dee942, #81C784);
+  transition: width 1.5s ease;
 }
