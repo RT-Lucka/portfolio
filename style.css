@@ -223,18 +223,16 @@ section.show {
 }
 
 /* Afficher burger sur petit écran */
-@media(max-width: 768px) {
-  .burger {
+@media (max-width: 768px) {
+  .social-links {
     display: flex;
+    flex-direction: column; /* liens en colonne */
+    align-items: center;
+    gap: 10px; /* espace vertical entre chaque lien */
   }
-}
-.social-links a {
-  margin: 0 15px;
-  color: #121a31;
-  font-size: 1.5em;
-  transition: color 0.3s;
-}
 
-.social-links a:hover {
-  color: #ffcc00;
+  .social-links a {
+    margin: 5px 0; /* marge verticale supplémentaire */
+    font-size: 1.3em; /* un peu plus grand pour mobile */
+  }
 }
