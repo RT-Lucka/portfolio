@@ -22,9 +22,10 @@ header {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 15px 30px;
+    gap: 30px;
 }
 
 .nav-links {
@@ -208,3 +209,32 @@ section.show {
 }
 
 
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* Afficher burger sur petit écran */
+@media(max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+}
+.social-links a {
+  margin: 0 15px;
+  color: #121a31;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffcc00;
+}
