@@ -139,3 +139,72 @@ header {
   margin-bottom: 10px;
   border-radius: 5px;
 }
+
+/* Animation d'apparition */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Section Compétences & Expérience */
+#competences-experience {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 50px auto;
+    color: rgb(0, 0, 0);
+    animation: fadeIn 3s infinite alternate; /* Animation en boucle */
+}
+
+#competences-experience h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#competences-experience h3 {
+    margin-top: 20px;
+    color: #ffcc00;
+}
+
+#competences-experience ul {
+    list-style: none;
+    padding: 0;
+}
+
+#competences-experience li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#competences-experience li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #ffcc00;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0.5; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    #competences-experience {
+        padding: 20px;
+    }
+}
+
+

@@ -24,8 +24,8 @@
   <!-- Accueil -->
   <section id="home" class="home">
     <img src="sary 2.png" alt="Photo de Lucka" class="profile-pic">
-    <h1>RANDRIANOMENA <br> Tsioriniaina Lucka</h1>
-    <p>Développeur passionné en informatique et électronique</p>
+    <h1>RANDRIANOMENA  Tsioriniaina Lucka</h1>
+    <p>Développeur passionné en informatique et électronique</p><br>
   </section>
 
   <!-- À propos -->
@@ -38,16 +38,30 @@
     </p>
   </section>
 
-    <section id="skills" class="skills">
-    <h2>Mes Compétences</h2>
-    <ul>
-      <li>Développement Web : HTML, CSS, JavaScript</li>
-      <li>Frameworks : Laravel, Bootstrap</li>
-      <li>Programmation : C++, Qt Creator</li>
-      <li>Base de données : MySQL</li>
-      <li>Électronique et microcontrôleurs</li>
-    </ul>
-  </section>
+<section id="competences-experience">
+    <h2>Compétences & Expérience</h2>
+
+    <div class="competences">
+        <h3>Compétences</h3>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Laravel & PHP</li>
+            <li>Base de données MySQL</li>
+            <li>Git & GitHub</li>
+            <li>Responsive Design</li>
+        </ul>
+    </div>
+
+    <div class="experience">
+        <h3>Expérience</h3>
+        <ul>
+            <li><strong>2024 :</strong> Développement d’un site e-commerce</li>
+            <li><strong>2023 :</strong> Création d’un portfolio professionnel</li>
+            <li><strong>2022 :</strong> Stage en développement web</li>
+        </ul>
+    </div>
+</section>
+
 
   <!-- Projets -->
   <section id="projects" class="projects">
@@ -73,6 +87,28 @@
     <h2>Contact</h2>
     <p>Email : <a href="mailto:lucka@example.com">lucka@example.com</a></p>
   </section>
+
+<script>
+  const sections = document.querySelectorAll("section");
+
+  function toggleSectionAnimation() {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+        section.classList.add("show"); // Section visible → animation
+      } else {
+        section.classList.remove("show"); // Section sortie → cache pour rejouer
+      }
+    });
+  }
+
+  window.addEventListener("scroll", toggleSectionAnimation);
+  toggleSectionAnimation(); // Lancer au chargement
+</script>
+
+
 
 </body>
 </html>
