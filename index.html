@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 
 
@@ -17,7 +18,12 @@
   <!-- Menu -->
   <header>
     <nav class="navbar">
-      <div class="logo">Lucka</div>
+<div class="logo">
+  <i class="fa-solid fa-user-headset fa-2x"></i>
+  <span   >Lucka</span>
+</div>
+
+
       <ul class="nav-links">
         <li><a href="#home">Accueil</a></li>
         <li><a href="#about">À propos</a></li>
@@ -70,19 +76,31 @@
   </div>
 
   <div class="skill">
-    <span>JavaScript</span>
-    <div class="progress">
-      <div class="progress-bar" data-value="75"></div>
-    </div>
-  </div>
-
-  <div class="skill">
-    <span>Laravel / PHP</span>
+    <span> C++/QT creator</span>
     <div class="progress">
       <div class="progress-bar" data-value="80"></div>
     </div>
   </div>
-</div>
+
+    <div class="skill">
+    <span> C#.net</span>
+    <div class="progress">
+      <div class="progress-bar" data-value="80"></div>
+    </div>
+  </div>
+
+
+    <div class="skill">
+    <span>python </span>
+    <div class="progress">
+      <div class="progress-bar" data-value="90"></div>
+    </div>
+  </div>
+
+
+
+
+
 
 
     <div class="experience">
@@ -173,27 +191,44 @@ navLinks.addEventListener('click', (e) => {
   e.stopPropagation();
 });
 
+let animationPlayed = false;
 
 document.addEventListener("scroll", () => {
   const skillsSection = document.querySelector(".competences");
-  const sectionTop = skillsSection.getBoundingClientRect().top;
-  const sectionBottom = skillsSection.getBoundingClientRect().bottom;
+  const rect = skillsSection.getBoundingClientRect();
   const windowHeight = window.innerHeight;
-
   const bars = document.querySelectorAll(".progress-bar");
 
-  // Si la section est visible à l'écran
-  if (sectionTop < windowHeight && sectionBottom > 0) {
-    bars.forEach(bar => {
-      const value = bar.getAttribute("data-value");
-      bar.style.width = value + "%";
-    });
+  // Section visible dans la fenêtre ?
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    if (!animationPlayed) {
+      bars.forEach(bar => {
+        const value = bar.getAttribute("data-value");
+        bar.style.width = value + "%";
+      });
+      animationPlayed = true;  // on marque que l'animation a joué
+    }
   } else {
-    // Réinitialise à 0% quand on quitte la section
+    // Section pas visible : reset pour pouvoir rejouer animation plus tard
     bars.forEach(bar => {
       bar.style.width = "0%";
     });
+    animationPlayed = false;  // on autorise la prochaine animation
   }
+});
+
+
+const profilePic = document.querySelector(".profile-pic");
+const images = ["sary2.png", "lucka.jpg"]; // tes 2 images
+let currentIndex = 0;
+
+profilePic.addEventListener("mouseenter", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  profilePic.src = images[currentIndex];
+});
+
+profilePic.addEventListener("mouseleave", () => {
+  profilePic.src = images[0]; // remet l'image initiale quand la souris quitte
 });
 
 
