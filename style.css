@@ -80,7 +80,7 @@ header {
 /* Projets */
 .projects {
   padding: 60px 20px;
-  background: #f4f4f4;
+  background: #110f0f;
 }
 
 .project-grid {
@@ -173,7 +173,7 @@ section.show {
     border-radius: 15px;
     max-width: 900px;
     margin: 50px auto;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     animation: fadeIn 3s infinite alternate; /* Animation en boucle */
 }
 
@@ -204,6 +204,20 @@ section.show {
     position: absolute;
     left: 0;
     color: #ffcc00;
+}
+
+.competence-columns {
+  display: flex;
+  gap: 30px;
+}
+
+.competence-columns .column {
+  flex: 1;
+}
+
+.competence-columns h4 {
+  margin-bottom: 10px;
+  color: #00ff66;
 }
 
 /* Animation */
@@ -263,7 +277,8 @@ section.show {
 
 
 .competences {
-  max-width: 500px;
+  max-width: none; /* enlève la limite de largeur */
+  width: 100%; 
 }
 
 .skill span {
@@ -286,7 +301,7 @@ section.show {
 .progress-bar {
   height: 100%;
   width: 0; /* commence à 0% */
-  background: linear-gradient(90deg, #dee942, #81C784);
+  background: linear-gradient(90deg, #dee948, #dda152);
   transition: width 1.5s ease;
 }
 
@@ -377,4 +392,26 @@ section.show {
 
 #top-left-btn:hover {
   background-color: rgba(0, 255, 102, 0.2); /* légère surbrillance */
+}
+
+#animated-text { display: inline-block; }
+
+/* Nav responsive avec .active (utilise la même logique que ton CSS existant) */
+.nav-links.active { display: flex; flex-direction: column; }
+
+/* Affiche le burger sur petit écran (si tu ne l'as pas déjà) */
+@media (max-width: 768px) {
+  .burger { display: flex; }
+  .nav-links { display: none; } /* caché par défaut sur mobile */
+  .nav-links.active { display: flex; }
+}
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }

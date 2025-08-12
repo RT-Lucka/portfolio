@@ -21,8 +21,7 @@
 <div class="logo">
   <i class="fa-solid fa-user-headset fa-2x"></i>
 
-  <button id="top-left-btn">  <i class="fa-solid fa-bars"></i></button>
-
+ 
 </div>
 
 
@@ -44,7 +43,7 @@
   <!-- Accueil -->
   <section id="home" class="home">
     <img src="sary 2.png" alt="Photo de Lucka" class="profile-pic">
-    <h1 id="animated-text">RANDRIANOMENA<br>Tsioriniaina Lucka</h1>
+ <h1 id="animated-text" class="typing">RANDRIANOMENA<br>Tsioriniaina Lucka</h1>
 
 
    
@@ -63,43 +62,59 @@
     </p>
   </section>
 
-<section id="competences-experience">
-<div class="competences">
-  <h3>Compétences</h3>
+  <section id="competences-experience" class="section">
+  <div class="competences">
+    <h3>Compétences</h3>
 
-  <div class="skill">
-    <span>HTML / CSS</span>
+    <div class="competence-columns">
+
+      <!-- Colonne Développement Web -->
+      <div class="column">
+        <h4>Développement Web</h4>
+
+        <div class="skill">
+          <span>HTML / CSS</span>
+          <div class="progress">
+            <div class="progress-bar" data-value="90"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Python</span>
+          <div class="progress">
+            <div class="progress-bar" data-value="90"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonne Électronique -->
+      <div class="column">
+        <h4>Électronique / Programmation</h4>
+
+        <div class="skill">
+          <span>C++ / QT Creator</span>
+          <div class="progress">
+            <div class="progress-bar" data-value="80"></div>
+          </div>
+        </div>
+
+          <div class="skill">
+    <span>JavaScript</span>
     <div class="progress">
-      <div class="progress-bar" data-value="90"></div>
+      <div class="progress-bar" data-value="85"></div>
     </div>
   </div>
 
-  <div class="skill">
-    <span> C++/QT creator</span>
-    <div class="progress">
-      <div class="progress-bar" data-value="80"></div>
+        <div class="skill">
+          <span>C#.NET</span>
+          <div class="progress">
+            <div class="progress-bar" data-value="80"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-
-    <div class="skill">
-    <span> C#.net</span>
-    <div class="progress">
-      <div class="progress-bar" data-value="80"></div>
-    </div>
-  </div>
-
-
-    <div class="skill">
-    <span>python </span>
-    <div class="progress">
-      <div class="progress-bar" data-value="90"></div>
-    </div>
-  </div>
-
-
-
-
-
 
 
     <div class="experience">
@@ -155,90 +170,78 @@
   </section>
 
 <script>
-  const sections = document.querySelectorAll("section");
+document.addEventListener('DOMContentLoaded', () => {
 
-  function toggleSectionAnimation() {
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.top < windowHeight - 100 && rect.bottom > 100) {
-        section.classList.add("show"); // Section visible → animation
-      } else {
-        section.classList.remove("show"); // Section sortie → cache pour rejouer
-      }
+  // --- Sections : apparition (remplace toggleSectionAnimation)
+  const sections = document.querySelectorAll('section');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+      else entry.target.classList.remove('show');
     });
-  }
+  }, { threshold: 0.12 }); // ajustable
 
-  window.addEventListener("scroll", toggleSectionAnimation);
-  toggleSectionAnimation(); // Lancer au chargement
+  sections.forEach(s => sectionObserver.observe(s));
 
 
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
 
-burger.addEventListener('click', (e) => {
-  e.stopPropagation(); // Empêche la propagation du clic au document
-  if (navLinks.style.display === 'flex') {
-    navLinks.style.display = 'none';
-  } else {
-    navLinks.style.display = 'flex';
-    navLinks.style.flexDirection = 'column';
-  }
-});
+  // --- Barres de compétence : anime quand la section .competences entre dans la fenêtre
+  const bars = document.querySelectorAll('.progress-bar');
+const skillsSection = document.getElementById('competences-experience');
 
-// Fermer le menu si clic en dehors
-document.addEventListener('click', () => {
-  navLinks.style.display = 'none';
-});
-
-// Empêcher la fermeture si clic dans le menu lui-même
-navLinks.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-let animationPlayed = false;
-
-document.addEventListener("scroll", () => {
-  const skillsSection = document.querySelector(".competences");
-  const rect = skillsSection.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  const bars = document.querySelectorAll(".progress-bar");
-
-  // Section visible dans la fenêtre ?
-  if (rect.top < windowHeight && rect.bottom > 0) {
-    if (!animationPlayed) {
-      bars.forEach(bar => {
-        const value = bar.getAttribute("data-value");
-        bar.style.width = value + "%";
+  if (skillsSection) {
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // remplir les barres
+          bars.forEach(bar => {
+            const value = bar.getAttribute('data-value') || 0;
+            bar.style.width = value + '%';
+          });
+        } else {
+          // reset pour pouvoir rejouer quand on ressort/re-rentre
+          bars.forEach(bar => bar.style.width = '0%');
+        }
       });
-      animationPlayed = true;  // on marque que l'animation a joué
-    }
-  } else {
-    // Section pas visible : reset pour pouvoir rejouer animation plus tard
-    bars.forEach(bar => {
-      bar.style.width = "0%";
+    }, { threshold: 0.25 });
+
+    skillsObserver.observe(skillsSection);
+  }
+  
+
+
+  // --- Animation typing pour le h1 : lance quand le h1 est visible et reset quand il sort
+  const h1 = document.getElementById('animated-text');
+  if (h1) {
+    const h1Obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          h1.classList.add('typing');
+        } else {
+          // retirer la classe pour pouvoir relancer l'animation au prochain entrant
+          h1.classList.remove('typing');
+          void h1.offsetWidth; // reflow pour reset
+        }
+      });
+    }, { threshold: 0.5 });
+
+    h1Obs.observe(h1);
+  }
+
+
+  // --- Burger menu (plus propre : toggle d'une classe .active)
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  if (burger && navLinks) {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
     });
-    animationPlayed = false;  // on autorise la prochaine animation
+    document.addEventListener('click', () => navLinks.classList.remove('active'));
+    navLinks.addEventListener('click', e => e.stopPropagation());
   }
-});
 
-function restartAnimation() {
-  const h1 = document.getElementById("animated-text");
-  h1.classList.remove("typing"); // retire l'animation
-  void h1.offsetWidth;           // "reflow" pour reset l'animation
-  h1.classList.add("typing");    // relance l'animation
-}
-
-// Exemple : relancer à chaque fois que tu changes de section
-document.addEventListener("scroll", () => {
-  const h1 = document.getElementById("animated-text");
-  const rect = h1.getBoundingClientRect();
-  if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-    restartAnimation();
-  }
 });
-   
 </script>
 
 
