@@ -417,3 +417,23 @@ section.show {
   transform: translateY(0);
 }
 }
+
+
+     .like-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .like-button.liked {
+      color: #e0245e; /* rouge cœur */
+    }
+
+    .avec-bordure {
+  border: 2px solid #fffb00;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}

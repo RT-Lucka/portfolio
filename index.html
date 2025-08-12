@@ -46,8 +46,9 @@
  <h1 id="animated-text" class="typing">RANDRIANOMENA<br>Tsioriniaina Lucka</h1>
 
 
-   
-    <p>Développeur passionné en informatique et électronique</p><br>
+   <p class="avec-bordure">Spécialisé en informatique de programmation et électronique embarquée,</p><br>
+
+  <button class="like-button" id="likeBtn">    <i class="fa-solid fa-thumbs-up"></i> </button>
 
 
   </section>
@@ -86,7 +87,7 @@
           </div>
         </div>
             <div class="skill">
-          <span>C++</span>
+          <span>C++/Qtcreator</span>
           <div class="progress">
             <div class="progress-bar" data-value="90"></div>
           </div>
@@ -122,6 +123,13 @@
     </div>
   </div>
 
+          <div class="skill">
+    <span>Maintenance </span>
+    <div class="progress">
+      <div class="progress-bar" data-value="100"></div>
+    </div>
+  </div>
+
         <div class="skill">
           <span>Capteurs et actionneurs</span>
           <div class="progress">
@@ -138,9 +146,12 @@
     <div class="experience">
         <h3>Expérience</h3>
         <ul>
-            <li><strong>Stagiaire chez l'entreprise JIRAMA </strong>Creation du projet site facturation avec php laravel  et aussi </li>
           
-            <li><strong> Stagiaire chez l’entreprise prestataire RSEM </strong>j’ai réalisé des opérations de maintenance et de reprogrammation sur des équipements industriels (variateurs de fréquence, onduleurs triphase, Automate.) pour différents clients tels que JB, Mkeln, Jovena, ProPain, Aigle d'or ,Henri Fraise,AFROTEL,CAMUSAT,</li>
+          <li><strong>Stagiaire chez l'entreprise JIRAMA </strong>Participation à la création d’un site de facturation utilisant le framework Laravel, de la conception à la mise en place fonctionnelle <br>
+   Acquisition de connaissances pratiques sur les différents types de protocoles de routage utilisés dans les réseaux.
+          </li>
+          
+            <li><strong> Stagiaire chez l’entreprise prestataire RSEM </strong> Maintenance et reprogrammation d’équipements industriels (variateurs, onduleurs, automates) pour plusieurs clients, dont JB, Mkeln, Jovena, ProPain, Aigle d’Or, Henri Fraise, AFROTEL et CAMUSAT.</li>
         </ul>
     </div>
 
@@ -261,6 +272,18 @@ const skillsSection = document.getElementById('competences-experience');
   }
 
 });
+
+
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+      likeBtn.classList.toggle('liked');
+      if (likeBtn.classList.contains('liked')) {
+        likeBtn.textContent = "J'aime ✓";
+      } else {
+        likeBtn.textContent = "J'aime";
+      }
+    });
 </script>
 
 
