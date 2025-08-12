@@ -42,7 +42,11 @@
   <!-- Accueil -->
   <section id="home" class="home">
     <img src="sary 2.png" alt="Photo de Lucka" class="profile-pic">
-    <h1>RANDRIANOMENA  Tsioriniaina Lucka</h1>
+    <h1>
+        <span class="line1">RANDRIANOMENA</span><br>
+  <span class="line2">Tsioriniaina Lucka</span>
+    </h1>
+   
     <p>Développeur passionné en informatique et électronique</p><br>
  <div class="social-links">
   <a href="https://facebook.com/tonprofil" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
@@ -218,20 +222,7 @@ document.addEventListener("scroll", () => {
 });
 
 
-const profilePic = document.querySelector(".profile-pic");
-const images = ["sary2.png", "lucka.jpg"]; // tes 2 images
-let currentIndex = 0;
-
-profilePic.addEventListener("mouseenter", () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  profilePic.src = images[currentIndex];
-});
-
-profilePic.addEventListener("mouseleave", () => {
-  profilePic.src = images[0]; // remet l'image initiale quand la souris quitte
-});
-
-
+   
 </script>
 
 
