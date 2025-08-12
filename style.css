@@ -56,7 +56,7 @@ header {
 
 /* Section accueil */
 .home {
-  background: #1f190f;
+  background: #000000;
   padding: 120px 20px 60px;
   text-align: center;
 }
@@ -67,6 +67,7 @@ header {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #0b1635;
+    box-shadow: 0 14px 20px rgb(243, 255, 71);
   margin-bottom: 15px;
 }
 
@@ -114,7 +115,7 @@ header {
 @media(max-width: 768px) {
   .nav-links {
     flex-direction: column;
-    background: #0b1635;
+    background: #040711;
     position: absolute;
     top: 60px;
     right: 0;
@@ -217,7 +218,7 @@ section.show {
 
 .competence-columns h4 {
   margin-bottom: 10px;
-  color: #00ff66;
+  color: #ffee00;
 }
 
 /* Animation */
@@ -244,7 +245,7 @@ section.show {
 .burger div {
   width: 25px;
   height: 3px;
-  background: white;
+  background: rgb(255, 251, 0);
 }
 
 /* Afficher burger sur petit écran */
@@ -414,4 +415,5 @@ section {
 section.show {
   opacity: 1;
   transform: translateY(0);
+}
 }
