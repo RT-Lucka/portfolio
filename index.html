@@ -42,10 +42,9 @@
   <!-- Accueil -->
   <section id="home" class="home">
     <img src="sary 2.png" alt="Photo de Lucka" class="profile-pic">
-    <h1>
-        <span class="line1">RANDRIANOMENA</span><br>
-  <span class="line2">Tsioriniaina Lucka</span>
-    </h1>
+    <h1 id="animated-text">RANDRIANOMENA<br>Tsioriniaina Lucka</h1>
+
+
    
     <p>Développeur passionné en informatique et électronique</p><br>
  <div class="social-links">
@@ -150,6 +149,13 @@
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email : <a href="mailto:lucka@example.com">tsioriniainalucka2@gmail.com</a></p>
+
+  <div class="social-links">
+    <a href="https://facebook.com/tonprofil" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://github.com/tonprofil" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/tonprofil" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://instagram.com/tonprofil" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+  </div>
   </section>
 
 <script>
@@ -221,7 +227,21 @@ document.addEventListener("scroll", () => {
   }
 });
 
+function restartAnimation() {
+  const h1 = document.getElementById("animated-text");
+  h1.classList.remove("typing"); // retire l'animation
+  void h1.offsetWidth;           // "reflow" pour reset l'animation
+  h1.classList.add("typing");    // relance l'animation
+}
 
+// Exemple : relancer à chaque fois que tu changes de section
+document.addEventListener("scroll", () => {
+  const h1 = document.getElementById("animated-text");
+  const rect = h1.getBoundingClientRect();
+  if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+    restartAnimation();
+  }
+});
    
 </script>
 

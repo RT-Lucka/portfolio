@@ -22,8 +22,8 @@ body {
 
 /* Menu */
 header {
-  background: #0b1635;
-  color: white;
+  background: #b17c0a;
+  color: rgb(53, 39, 14);
   position: fixed;
   width: 100%;
   top: 0;
@@ -55,7 +55,7 @@ header {
 
 /* Section accueil */
 .home {
-  background: #f4f4f4;
+  background: #f5f5f5;
   padding: 120px 20px 60px;
   text-align: center;
 }
@@ -234,21 +234,32 @@ section.show {
 
 /* Afficher burger sur petit écran */
 @media (max-width: 768px) {
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-        color: #0b1635 !important;
-    gap: 10px;
-  }
-
-  .social-links a, 
-  .social-links a i { /* on cible aussi les icônes */
-    color: #0b1635 !important;
-    margin: 5px 0;
-    font-size: 1.3em;
-  }
+/* Contact - Icônes réseaux sociaux */
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
 }
+
+.social-links a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: #ffffff; /* vert pharmacie */
+  color: #000000;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #990000; 
+  transform: scale(1.1);
+}
+
 
 .competences {
   max-width: 500px;
@@ -323,14 +334,17 @@ section.show {
   left: 0;
 }
 
-h1 {
-  font-family: monospace; /* ou 'Great Vibes' si tu veux */
+#animated-text {
+  font-family: monospace;
   font-size: 2em;
-  color: #0b1635;
-  white-space: nowrap; /* tout sur une seule ligne */
-  overflow: hidden; /* cache le texte non encore affiché */
-  border-right: 3px solid #00ff66; /* curseur clignotant */
-  width: 0; /* au départ rien n'est visible */
+  color: #0a2531;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ff66;
+  width: 0;
+}
+
+.typing {
   animation:
     typing 4s steps(30, end) forwards,
     blink 0.7s step-end infinite alternate;
